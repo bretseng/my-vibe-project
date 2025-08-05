@@ -1,12 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Cool Project</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>故事開始的地方...</h1>
-  <button id="next-btn">下一章</button>
+
+  <section id="scene-application">
+    <h1>申請你的高效能運算專案</h1>
+    <p>為你的專案取個名字，開啟無限可能。</p>
+    <input type="text" placeholder="我的超酷專案">
+    <button id="btn-goto-dashboard">提交申請</button>
+  </section>
+
+  <section id="scene-dashboard" class="hidden">
+    <h1>歡迎來到儀表板！</h1>
+    <p>你的專案 `我的超酷專案` 已經準備就緒。</p>
+    <img src="your-software-screenshot.png" alt="軟體介面" style="max-width: 80%;">
+  </section>
+
   <script src="app.js"></script>
 </body>
 </html>
