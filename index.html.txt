@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cool Project</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>故事開始的地方...</h1>
+  <button id="next-btn">下一章</button>
+  <script src="app.js"></script>
+</body>
+</html>
