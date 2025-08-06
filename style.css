@@ -21,6 +21,7 @@ body {
   padding: 24px;
   /* 拿掉陰影，改用細緻的邊線，更乾淨 */
   border-right: 1px solid #e8e8e8; 
+  box-sizing: border-box; /* 確保 padding 不會讓寬度溢出 */
 }
 
 .sidebar-header {
@@ -55,6 +56,7 @@ body {
 .main-content {
   flex-grow: 1;
   padding: 48px;
+  box-sizing: border-box;
 }
 
 .welcome-header h1 {
@@ -99,19 +101,6 @@ body {
   min-height: 150px;
 }
 
-.project-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  font-size: 14px;
-}
-
-.project-row span:nth-child(2) {
-    color: #888; /* 日期顏色淺一點 */
-}
-
-/* 溫柔的粉紅色按鈕，視覺焦點！ */
 .project-button {
   background-color: #ea6283;
   color: white;
