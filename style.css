@@ -1,21 +1,97 @@
-/* 我們的熱點按鈕！ */
-#hotspot-view-project {
-  position: absolute;  /* 就是這一行！讓按鈕可以被自由定位！ */
-  
-  /* === 以下數值需要你手動微調 === */
-  top: 45.5%;
-  left: 65%;
-  width: 9%;
-  height: 4%;
-  /* ============================== */
-  
-  background-color: rgba(255, 0, 0, 0.5); /* 先用半透明紅色來對位 */
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
+/* 基本的 reset 和字體設定，讓一切有個好開始 */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  background-color: #f9f9f9; /* 給個淡淡的底色 */
+  color: #333;
 }
 
-/* 滑鼠移上去時，顯示不同顏色，方便我們微調位置 */
-#hotspot-view-project:hover {
-  background-color: rgba(0, 255, 0, 0.5); /* 移上去變綠色，更清楚 */
+/* 整個 App 的容器，用 Flexbox 來排版，超方便！ */
+.app-container {
+  display: flex;
+}
+
+/* --- 側邊欄 Sidebar --- */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  height: 100vh; /* 佔滿整個螢幕高度 */
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* 加點立體感 */
+}
+
+.sidebar-header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.nav-item {
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  color: #555;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.nav-item.active, .nav-item:hover {
+  background-color: #f0f0f0;
+  color: #111;
+}
+
+
+/* --- 主內容區 Main Content --- */
+.main-content {
+  flex-grow: 1; /* 告訴它「剩下的空間都給你！」 */
+  padding: 40px;
+}
+
+.welcome-header h1 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-top: 0;
+}
+
+/* 用 Grid 來切出漂亮的兩欄，比 Flexbox 更適合棋盤式佈局 */
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 切成 1:1 的兩欄 */
+  gap: 30px; /* 欄位之間的間距 */
+}
+
+.panel {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.panel-header {
+  background-color: #4a4a4a;
+  color: white;
+  padding: 15px 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  font-weight: bold;
+}
+
+.panel-body {
+  padding: 20px;
+  min-height: 150px;
+}
+
+.project-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.project-button {
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
 }
