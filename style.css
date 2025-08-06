@@ -1,78 +1,97 @@
-/* 基本的 reset 和字體設定，讓一切有個好開始 */
+/* --- 全局 Vibe 設定 --- */
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
-  background-color: #f9f9f9; /* 給個淡淡的底色 */
+  /* 換上更現代、更柔和的字體，這是質感的第一步 */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
+  /* 專業介面常用的背景色，比純白更有層次 */
+  background-color: #f7f7f7; 
   color: #333;
 }
 
-/* 整個 App 的容器，用 Flexbox 來排版，超方便！ */
+/* --- App 容器 & 佈局 --- */
 .app-container {
   display: flex;
 }
 
-/* --- 側邊欄 Sidebar --- */
+/* --- 質感側邊欄 --- */
 .sidebar {
   width: 240px;
   background-color: #ffffff;
-  height: 100vh; /* 佔滿整個螢幕高度 */
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.05); /* 加點立體感 */
+  height: 100vh;
+  padding: 24px;
+  /* 拿掉陰影，改用細緻的邊線，更乾淨 */
+  border-right: 1px solid #e8e8e8; 
 }
 
 .sidebar-header {
-  font-size: 24px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 600; /* 加粗一點點 */
+  padding-left: 10px;
   margin-bottom: 30px;
 }
 
 .nav-item {
   display: block;
-  padding: 12px;
+  padding: 14px 20px;
   text-decoration: none;
   color: #555;
-  border-radius: 6px;
+  border-radius: 8px;
   margin-bottom: 8px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.nav-item.active, .nav-item:hover {
-  background-color: #f0f0f0;
+.nav-item.active {
+  background-color: #f0f0f7;
   color: #111;
 }
 
+.nav-item:hover {
+  background-color: #f5f5f5;
+}
 
-/* --- 主內容區 Main Content --- */
+
+/* --- 主要內容區 --- */
 .main-content {
-  flex-grow: 1; /* 告訴它「剩下的空間都給你！」 */
-  padding: 40px;
+  flex-grow: 1;
+  padding: 48px;
 }
 
 .welcome-header h1 {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 26px;
+  /* 字重調細，看起來更優雅 */
+  font-weight: 400; 
   margin-top: 0;
+  margin-bottom: 40px;
 }
 
-/* 用 Grid 來切出漂亮的兩欄，比 Flexbox 更適合棋盤式佈局 */
+/* Grid 佈局不變，但微調間距 */
 .content-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* 切成 1:1 的兩欄 */
-  gap: 30px; /* 欄位之間的間距 */
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
 }
 
 .panel {
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  /* 加上和側邊欄一樣的細邊框，風格統一 */
+  border: 1px solid #e8e8e8; 
+  /* 更細緻的陰影 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 
 .panel-header {
-  background-color: #4a4a4a;
+  /* 調整成範本的深灰色 */
+  background-color: #585858; 
   color: white;
   padding: 15px 20px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  font-weight: bold;
+  border-top-left-radius: 7px; /* 配合邊框微調 */
+  border-top-right-radius: 7px;
+  font-weight: 500; /* 不用太粗 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .panel-body {
@@ -84,14 +103,27 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 12px 0;
+  font-size: 14px;
 }
 
+.project-row span:nth-child(2) {
+    color: #888; /* 日期顏色淺一點 */
+}
+
+/* 溫柔的粉紅色按鈕，視覺焦點！ */
 .project-button {
-  background-color: #d9534f;
+  background-color: #ea6283;
   color: white;
   border: none;
   padding: 8px 16px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s ease; /* 為了之後的 hover 特效 */
+}
+
+.project-button:hover {
+  background-color: #e04a6e; /* Hover 時深一點點 */
 }
