@@ -1,47 +1,21 @@
-/* 基本設定 */
-body {
-  margin: 0;
-  font-family: sans-serif;
-  background-color: #f0f2f5; /* 給個背景色，讓圖片置中好看點 */
-}
-
-.scene {
-  position: relative; /* 讓絕對定位的按鈕可以相對於它 */
-  width: 100%;
-  display: flex;
-  justify-content: center; /* 讓圖片水平置中 */
-}
-
-.scene img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* 隱藏場景用的 class */
-.hidden {
-  display: none;
-}
-
 /* 我們的熱點按鈕！ */
 #hotspot-view-project {
-  /* ... 你其他的 top, left, width, height 設定 ... */
-  background-color: rgba(255, 0, 0, 0.5); /* 暫時改成半透明紅色 */
-}
+  position: absolute;  /* 就是這一行！讓按鈕可以被自由定位！ */
   
   /* === 以下數值需要你手動微調 === */
-  top: 45.5%;          /* 從頂部算下來的百分比 */
-  left: 65%;           /* 從左邊算過來的百分比 */
-  width: 9%;           /* 按鈕的寬度百分比 */
-  height: 4%;          /* 按鈕的高度百分比 */
+  top: 45.5%;
+  left: 65%;
+  width: 9%;
+  height: 4%;
   /* ============================== */
-
-  background-color: rgba(255, 0, 0, 0.0); /* 平常設為 0.0 (全透明) */
+  
+  background-color: rgba(255, 0, 0, 0.5); /* 先用半透明紅色來對位 */
   border: none;
-  cursor: pointer; /* 滑鼠移上去變手形 */
+  cursor: pointer;
   border-radius: 5px;
 }
 
-/* 滑鼠移上去時，顯示紅色半透明，方便我們微調位置 */
+/* 滑鼠移上去時，顯示不同顏色，方便我們微調位置 */
 #hotspot-view-project:hover {
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(0, 255, 0, 0.5); /* 移上去變綠色，更清楚 */
 }
