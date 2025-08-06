@@ -24,7 +24,9 @@ body {
 
 /* 我們的熱點按鈕！ */
 #hotspot-view-project {
-  position: absolute; /* 絕對定位，相對於 .scene */
+  /* ... 你其他的 top, left, width, height 設定 ... */
+  background-color: rgba(255, 0, 0, 0.5); /* 暫時改成半透明紅色 */
+}
   
   /* === 以下數值需要你手動微調 === */
   top: 45.5%;          /* 從頂部算下來的百分比 */
