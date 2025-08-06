@@ -5,8 +5,152 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibe Dashboard</title>
   
-  <link rel="stylesheet" href="style.css">
+  <style>
+    /* --- 全局 Vibe 設定 --- */
+    body {
+      margin: 0;
+      /* 換上更現代、更柔和的字體，這是質感的第一步 */
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
+      /* 專業介面常用的背景色，比純白更有層次 */
+      background-color: #f7f7f7; 
+      color: #333;
+    }
 
+    /* --- App 容器 & 佈局 --- */
+    .app-container {
+      display: flex;
+    }
+
+    /* --- 質感側邊欄 --- */
+    .sidebar {
+      width: 240px;
+      background-color: #ffffff;
+      height: 100vh;
+      padding: 24px;
+      /* 拿掉陰影，改用細緻的邊線，更乾淨 */
+      border-right: 1px solid #e8e8e8; 
+      box-sizing: border-box; /* 確保 padding 不會讓寬度溢出 */
+    }
+
+    .sidebar-header {
+      font-size: 20px;
+      font-weight: 600; /* 加粗一點點 */
+      padding-left: 10px;
+      margin-bottom: 30px;
+    }
+
+    .nav-item {
+      display: block;
+      padding: 14px 20px;
+      text-decoration: none;
+      color: #555;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-weight: 500;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-item.active {
+      background-color: #f0f0f7;
+      color: #111;
+    }
+
+    .nav-item:hover {
+      background-color: #f5f5f5;
+    }
+
+
+    /* --- 主要內容區 --- */
+    .main-content {
+      flex-grow: 1;
+      padding: 48px;
+      box-sizing: border-box;
+    }
+
+    .welcome-header h1 {
+      font-size: 26px;
+      /* 字重調細，看起來更優雅 */
+      font-weight: 400; 
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+
+    /* Grid 佈局不變，但微調間距 */
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+    }
+
+    .panel {
+      background-color: #ffffff;
+      border-radius: 8px;
+      /* 加上和側邊欄一樣的細邊框，風格統一 */
+      border: 1px solid #e8e8e8; 
+      /* 更細緻的陰影 */
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .panel-header {
+      /* 調整成範本的深灰色 */
+      background-color: #585858; 
+      color: white;
+      padding: 15px 20px;
+      border-top-left-radius: 7px; /* 配合邊框微調 */
+      border-top-right-radius: 7px;
+      font-weight: 500; /* 不用太粗 */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-body {
+      padding: 20px;
+      min-height: 150px;
+    }
+
+    .project-button {
+      background-color: #ea6283;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+      transition: background-color 0.2s ease; /* 為了之後的 hover 特效 */
+    }
+
+    .project-button:hover {
+      background-color: #e04a6e; /* Hover 時深一點點 */
+    }
+
+    /* 為了新加的欄位標題們 */
+    .panel-subheader {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 10px 10px 10px;
+      color: #999;
+      font-size: 13px;
+      border-bottom: 1px solid #f0f0f0;
+      margin-bottom: 5px;
+    }
+
+    /* 讓右邊面板的標題對齊 */
+    .panel-subheader span:last-child {
+      margin-right: 100px; /* 這個值可以微調到你覺得最順眼的位置 */
+    }
+
+    /* 調整 project-row 的對齊方式 */
+    .project-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 12px 10px;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
 
@@ -60,7 +204,7 @@
               <span>タイトル</span>
               <span>公開日</span>
             </div>
-            </div>
+          </div>
         </div>
 
       </div>
