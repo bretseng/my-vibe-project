@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibe Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
 <body>
 
   <div class="app-container">
@@ -15,8 +7,16 @@
       <nav class="sidebar-nav">
         <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
         <a href="#" class="nav-item active">プロジェクト一覧</a>
+        <a href="#" class="nav-item">プロジェクト詳細</a>
         <a href="#" class="nav-item">コンテナ管理</a>
         <a href="#" class="nav-item">ジョブ管理</a>
+        <a href="#" class="nav-item">GPU 使用率</a>
+        <a href="#" class="nav-item">ストレージ管理</a>
+        <a href="#" class="nav-item">イメージ管理</a>
+        <a href="#" class="nav-item">詳細設定</a>
+        <a href="#" class="nav-item">コスト分析</a>
+        <a href="#" class="nav-item">RCS</a>
+        <a href="#" class="nav-item">モデル推論サービス</a>
       </nav>
     </aside>
 
@@ -31,9 +31,13 @@
         <div class="panel">
           <div class="panel-header">最近訪問したプロジェクト</div>
           <div class="panel-body">
+            <div class="panel-subheader">
+              <span>プロジェクト名</span>
+              <span>アクセス日時</span>
+            </div>
             <div class="project-row">
               <span>JapanLab</span>
-              <span>2025/08/06 22:08:24</span>
+              <span>2025/08/06 22:46:02</span>
               <button class="project-button">プロジェクトを見る</button>
             </div>
           </div>
@@ -42,6 +46,10 @@
         <div class="panel">
           <div class="panel-header">お知らせ</div>
           <div class="panel-body">
+            <div class="panel-subheader">
+              <span>タイトル</span>
+              <span>公開日</span>
+            </div>
             </div>
         </div>
 
@@ -50,4 +58,3 @@
   </div>
 
 </body>
-</html>
