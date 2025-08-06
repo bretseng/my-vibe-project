@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vibe Dashboard</title>
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
   <style>
     /* --- 全局 Vibe 設定 --- */
     body {
       margin: 0;
-      /* 換上更現代、更柔和的字體，這是質感的第一步 */
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Hiragino Sans', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
-      /* 專業介面常用的背景色，比純白更有層次 */
+      /* 套用新的 Noto Sans JP 字體 */
+      font-family: 'Noto Sans JP', sans-serif;
       background-color: #f7f7f7; 
       color: #333;
     }
@@ -27,14 +30,13 @@
       background-color: #ffffff;
       height: 100vh;
       padding: 24px;
-      /* 拿掉陰影，改用細緻的邊線，更乾淨 */
       border-right: 1px solid #e8e8e8; 
-      box-sizing: border-box; /* 確保 padding 不會讓寬度溢出 */
+      box-sizing: border-box; 
     }
 
     .sidebar-header {
       font-size: 20px;
-      font-weight: 600; /* 加粗一點點 */
+      font-weight: 600;
       padding-left: 10px;
       margin-bottom: 30px;
     }
@@ -69,13 +71,11 @@
 
     .welcome-header h1 {
       font-size: 26px;
-      /* 字重調細，看起來更優雅 */
       font-weight: 400; 
       margin-top: 0;
       margin-bottom: 40px;
     }
 
-    /* Grid 佈局不變，但微調間距 */
     .content-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -85,20 +85,17 @@
     .panel {
       background-color: #ffffff;
       border-radius: 8px;
-      /* 加上和側邊欄一樣的細邊框，風格統一 */
       border: 1px solid #e8e8e8; 
-      /* 更細緻的陰影 */
       box-shadow: 0 1px 3px rgba(0,0,0,0.02);
     }
 
     .panel-header {
-      /* 調整成範本的深灰色 */
       background-color: #585858; 
       color: white;
       padding: 15px 20px;
-      border-top-left-radius: 7px; /* 配合邊框微調 */
+      border-top-left-radius: 7px;
       border-top-right-radius: 7px;
-      font-weight: 500; /* 不用太粗 */
+      font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -109,107 +106,26 @@
       min-height: 150px;
     }
 
+    /* --- 按鈕的 Hover 動畫樣式 --- */
     .project-button {
       background-color: #ea6283;
       color: white;
-      border: none;
+      border: 1px solid #ea6283;
       padding: 8px 16px;
       border-radius: 5px;
       cursor: pointer;
       font-size: 13px;
       font-weight: 500;
-      transition: background-color 0.2s ease; /* 為了之後的 hover 特效 */
+      position: relative;
+      overflow: hidden;
+      transition: color 0.4s ease-out;
     }
 
-    .project-button:hover {
-      background-color: #e04a6e; /* Hover 時深一點點 */
+    .project-button span {
+      position: relative;
+      z-index: 1;
     }
 
-    /* 為了新加的欄位標題們 */
-    .panel-subheader {
-      display: flex;
-      justify-content: space-between;
-      padding: 0 10px 10px 10px;
-      color: #999;
-      font-size: 13px;
-      border-bottom: 1px solid #f0f0f0;
-      margin-bottom: 5px;
-    }
-
-    /* 讓右邊面板的標題對齊 */
-    .panel-subheader span:last-child {
-      margin-right: 100px; /* 這個值可以微調到你覺得最順眼的位置 */
-    }
-
-    /* 調整 project-row 的對齊方式 */
-    .project-row {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      gap: 20px;
-      align-items: center;
-      padding: 12px 10px;
-      font-size: 14px;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="app-container">
-
-    <aside class="sidebar">
-      <div class="sidebar-header">AI-Stack</div>
-      <nav class="sidebar-nav">
-        <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
-        <a href="#" class="nav-item active">プロジェクト一覧</a>
-        <a href="#" class="nav-item">プロジェクト詳細</a>
-        <a href="#" class="nav-item">コンテナ管理</a>
-        <a href="#" class="nav-item">ジョブ管理</a>
-        <a href="#" class="nav-item">GPU 使用率</a>
-        <a href="#" class="nav-item">ストレージ管理</a>
-        <a href="#" class="nav-item">イメージ管理</a>
-        <a href="#" class="nav-item">詳細設定</a>
-        <a href="#" class="nav-item">コスト分析</a>
-        <a href="#" class="nav-item">RCS</a>
-        <a href="#" class="nav-item">モデル推論サービス</a>
-      </nav>
-    </aside>
-
-    <main class="main-content">
-      
-      <header class="welcome-header">
-        <h1>こんにちは Joe Wu, 管理プラットフォームへお帰りなさい！</h1>
-      </header>
-
-      <div class="content-grid">
-
-        <div class="panel">
-          <div class="panel-header">最近訪問したプロジェクト</div>
-          <div class="panel-body">
-            <div class="panel-subheader">
-              <span>プロジェクト名</span>
-              <span>アクセス日時</span>
-            </div>
-            <div class="project-row">
-              <span>JapanLab</span>
-              <span>2025/08/06 22:46:02</span>
-              <button class="project-button">プロジェクトを見る</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="panel">
-          <div class="panel-header">お知らせ</div>
-          <div class="panel-body">
-            <div class="panel-subheader">
-              <span>タイトル</span>
-              <span>公開日</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </main>
-  </div>
-
-</body>
-</html>
+    .project-button::before {
+      content: '';
+      position
