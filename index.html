@@ -1,20 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>AI-Stack Experience</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Dashboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <section id="scene-dashboard" class="scene">
-    <img src="dashboard.png" alt="Dashboard">
-    <button id="hotspot-view-project"></button>
-  </section>
+  <div class="app-container">
 
-  <section id="scene-project-details" class="scene hidden">
-    <img src="project-details.png" alt="Project Details">
-  </section>
+    <aside class="sidebar">
+      <div class="sidebar-header">AI-Stack</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
+        <a href="#" class="nav-item active">プロジェクト一覧</a>
+        <a href="#" class="nav-item">コンテナ管理</a>
+        <a href="#" class="nav-item">ジョブ管理</a>
+      </nav>
+    </aside>
 
-  <script src="app.js"></script>
+    <main class="main-content">
+      
+      <header class="welcome-header">
+        <h1>こんにちは Joe Wu, 管理プラットフォームへお帰りなさい！</h1>
+      </header>
+
+      <div class="content-grid">
+
+        <div class="panel">
+          <div class="panel-header">最近訪問したプロジェクト</div>
+          <div class="panel-body">
+            <div class="project-row">
+              <span>JapanLab</span>
+              <span>2025/08/06 22:08:24</span>
+              <button class="project-button">プロジェクトを見る</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">お知らせ</div>
+          <div class="panel-body">
+            </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
 </body>
 </html>
