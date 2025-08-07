@@ -147,6 +147,15 @@
     .project-button:hover::before {
       transform: scaleX(1);
     }
+
+    /* --- 按鈕點擊的 3D 按壓感 --- */
+    .project-button:active {
+    /* 往下移動 2px，製造下陷感 */
+    transform: translateY(2px);
+  
+    /* 也可以順便把陰影變小或拿掉，讓效果更逼真 */
+    box-shadow: none;  
+}
     
     /* --- 其他排版微調 --- */
     .panel-subheader {
