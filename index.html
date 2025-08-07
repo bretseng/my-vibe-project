@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vibe Dashboard - Details</title>
+    <title>Vibe Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -18,48 +18,29 @@
         .sidebar-header img { max-width: 120px; display: block; }
         .nav-item { display: block; padding: 14px 20px; text-decoration: none; color: #555; border-radius: 8px; margin-bottom: 8px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease; }
         .nav-item:hover { background-color: #f0f0f0; }
-        /* 修正：details 頁面的 active 狀態為粉紅色 */
-        .page-details .nav-item.active { background-color: #fceef2; color: var(--main-pink); }
+        /* 修正：index 頁面的 active 狀態為灰色 */
+        .page-index .nav-item.active { background-color: #f0f0f0; }
         .sidebar-footer-logo { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ccc; }
         .main-content { flex-grow: 1; padding: 48px; box-sizing: border-box; }
-        .panel { display: flex; flex-direction: column; background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .welcome-header h1 { font-size: 26px; font-weight: 400; margin-top: 0; margin-bottom: 40px; color: var(--main-pink);}
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
+        .panel { background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
         .panel-header { background-color: #585858; color: white; padding: 12px 20px; border-top-left-radius: 7px; border-top-right-radius: 7px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
         .panel-header .header-title { display: flex; align-items: center; gap: 10px; }
-        .panel-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
-        .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .project-title { font-size: 28px; font-weight: 600; margin: 0; }
-        .header-actions button { display: inline-flex; align-items: center; margin-left: 10px; padding: 8px 12px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer; font-size: 14px; background-color: white; }
-        .header-actions .action-button::after { content: '▾'; margin-left: 8px; }
-        .details-grid { display: grid; grid-template-columns: 320px 1fr; gap: 36px; align-items: start; }
-        .left-column .panel { margin-bottom: 30px; }
-        .info-item { display: flex; align-items: center; padding: 8px 0; font-size: 14px; }
-        .info-item .icon { width: 24px; color: #888; text-align: center; margin-right: 8px; }
-        .info-item .label { flex-grow: 1; }
-        .resource-bar { display: flex; align-items: center; margin-bottom: 15px; }
-        .resource-bar label { width: 50px; font-size: 14px; }
-        .bar-container { flex-grow: 1; height: 10px; background-color: #eee; border-radius: 5px; overflow: hidden; margin: 0 15px; }
-        .bar { height: 100%; background-color: #5c9ce5; border-radius: 5px; }
-        .resource-bar span { font-size: 14px; width: 60px; text-align: right; }
-        .member-item { padding: 8px 0; font-size: 14px; }
-        .tag { font-size: 12px; padding: 2px 6px; border-radius: 4px; color: white; margin-left: 8px; background-color: var(--main-pink); }
-        .right-column .panel { margin-bottom: 30px; }
-        .table-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .search-box { position: relative; }
-        .search-box .icon { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: #aaa; }
-        .search-box input { border: 1px solid #ccc; border-radius: 5px; padding: 5px 8px 5px 30px; font-size: 14px; }
-        .icon-buttons button { background: none; border: none; font-size: 16px; cursor: pointer; margin-left: 15px; color: #555; }
-        .data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        .data-table th, .data-table td { text-align: left; padding: 12px 8px; border-bottom: 1px solid #f0f0f0; white-space: nowrap; }
-        .data-table th { font-weight: 500; color: #888; }
-        .data-table tbody tr:hover { background-color: #f9f9f9; }
-        .data-table input[type="checkbox"] { margin-right: 10px; }
-        .table-wrapper { flex-grow: 1; }
-        .footer-action { text-align: center; margin-top: auto; padding-top: 20px; }
-        .run-job-button { background-color: var(--main-pink); color: white; border: none; padding: 12px 40px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.2s ease; }
-        .run-job-button:hover { background-color: #e04a6e; }
+        .panel-header .header-actions button { background: none; border: none; color: white; font-size: 16px; cursor: pointer; }
+        .panel-body { padding: 20px; min-height: 150px; }
+        .panel-subheader { display: flex; justify-content: space-between; padding: 0 10px 10px 10px; color: #999; font-size: 13px; border-bottom: 1px solid #f0f0f0; margin-bottom: 5px; }
+        .panel-subheader span:last-child { margin-right: 100px; }
+        .project-row { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; padding: 12px 10px; font-size: 14px; }
+        .project-button { background-color: var(--main-pink); color: white; border: 1px solid var(--main-pink); padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: 500; position: relative; overflow: hidden; transition: color 0.4s ease-out; }
+        .project-button span { position: relative; z-index: 1; }
+        .project-button::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease-out; z-index: 0; }
+        .project-button:hover { color: var(--main-pink); }
+        .project-button:hover::before { transform: scaleX(1); }
+        .project-button:active { transform: translateY(2px); }
     </style>
 </head>
-<body class="page-details"> <div class="app-container">
+<body class="page-index"> <div class="app-container">
         <aside class="sidebar">
             <div class="sidebar-header">
                 <a href="index.html"><img src="https://i.imgur.com/Hc19MMW.png" alt="AI-Stack Logo"></a>
@@ -67,8 +48,8 @@
             <nav class="sidebar-nav">
                 <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
                 <a href="#" class="nav-item">プロジェクト審査リスト</a>
-                <a href="index.html" class="nav-item">プロジェクト一覧</a>
-                <a href="#" class="nav-item active">プロジェクト詳細</a> <a href="#" class="nav-item">コンテナ管理</a>
+                <a href="#" class="nav-item active">プロジェクト一覧</a> <a href="details.html" class="nav-item">プロジェクト詳細</a>
+                <a href="#" class="nav-item">コンテナ管理</a>
                 <a href="#" class="nav-item">ジョブ管理</a>
                 <a href="#" class="nav-item">GPU 使用率</a>
                 <a href="#" class="nav-item">ストレージ管理</a>
@@ -81,74 +62,38 @@
             <div class="sidebar-footer-logo"><i class="fab fa-creative-commons-zero"></i></div>
         </aside>
         <main class="main-content">
-            <header class="page-header">
-                <h1 class="project-title">JapanLab</h1>
-                <div class="header-actions">
-                    <button class="edit-button"><i class="fas fa-pencil-alt"></i></button>
-                    <button class="action-button">変更申請</button>
-                </div>
+            <header class="welcome-header">
+                <h1>こんにちは Joe Wu, 良い一日をお過ごしください！</h1>
             </header>
-            <div class="details-grid">
-                <div class="left-column">
-                    <div class="panel">
-                        <div class="panel-header"><div class="header-title"><i class="fas fa-info-circle"></i><span>プロジェクト基本情報</span></div></div>
-                        <div class="panel-body">
-                            <div class="info-item"><i class="fas fa-calendar-alt icon"></i><span class="label">開始日時</span> 2025/08/05</div>
-                            <div class="info-item"><i class="fas fa-calendar-check icon"></i><span class="label">終了日時</span> 2025/08/04</div>
-                            <div class="info-item"><i class="fas fa-box icon"></i><span class="label">コンテナ</span> 1 個</div>
-                            <div class="info-item"><i class="fas fa-briefcase icon"></i><span class="label">ジョブ</span> 0 個</div>
-                        </div>
+            <div class="content-grid">
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="header-title"><i class="fas fa-folder"></i><span>最近訪問したプロジェクト</span></div>
+                        <div class="header-actions"><button><i class="fas fa-sync-alt"></i></button></div>
                     </div>
-                    <div class="panel">
-                        <div class="panel-header"><div class="header-title"><i class="fas fa-cogs"></i><span>リソース割り当て</span></div></div>
-                        <div class="panel-body">
-                            <div class="resource-bar"><label>GPU</label><div class="bar-container"><div class="bar" style="width: 20%;"></div></div><span>10 PCS</span></div>
-                            <div class="resource-bar"><label>CPU</label><div class="bar-container"><div class="bar" style="width: 60%;"></div></div><span>99 Core</span></div>
-                            <div class="resource-bar"><label>RAM</label><div class="bar-container"><div class="bar" style="width: 80%;"></div></div><span>999 GB</span></div>
+                    <div class="panel-body">
+                        <div class="panel-subheader">
+                            <span>プロジェクト名</span>
+                            <span>アクセス日時</span>
                         </div>
-                    </div>
-                    <div class="panel">
-                        <div class="panel-header"><div class="header-title"><i class="fas fa-users"></i><span>プロジェクトメンバー</span></div></div>
-                        <div class="panel-body">
-                            <div class="member-item">fylmacaca <span class="tag">管理者</span></div>
-                            <div class="member-item">Joe Wu <span class="tag">管理者</span></div>
-                            <div class="member-item">test</div>
-                            <div class="member-item">testuser2</div>
+                        <div class="project-row">
+                            <span>JapanLab</span>
+                            <span>2025/08/07 22:25:16</span>
+                            <a href="details.html">
+                                <button class="project-button"><span>プロジェクトを見る</span></button>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="right-column">
-                    <div class="panel">
-                        <div class="panel-header"><div class="header-title"><i class="fas fa-server"></i><span>コンテナ一覧</span></div></div>
-                        <div class="panel-body">
-                            <div class="table-controls">
-                                <div class="search-box"><i class="fas fa-search icon"></i><input type="search" placeholder="検索"></div>
-                                <div class="icon-buttons"><button><i class="fas fa-plus"></i></button><button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-cog"></i></button></div>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="data-table">
-                                    <thead><tr><th><input type="checkbox">名前</th><th>GPU</th><th>操作環境</th><th>CUDA バージョン</th><th>開始時間</th><th>所有者</th><th>状態</th></tr></thead>
-                                    <tbody><tr><td><input type="checkbox">demo</td><td>4GB NVIDIA P...</td><td>tensorflow:25.0...</td><td>12.8</td><td>2025/08/05 12:...</td><td>Joe Wu</td><td>実行中</td></tr></tbody>
-                                </table>
-                            </div>
-                        </div>
+                <div class="panel">
+                    <div class="panel-header">
+                        <div class="header-title"><i class="fas fa-clipboard-list"></i><span>お知らせ</span></div>
+                        <div class="header-actions"><button><i class="fas fa-sync-alt"></i></button></div>
                     </div>
-                    <div class="panel">
-                        <div class="panel-header"><div class="header-title"><i class="fas fa-tasks"></i><span>ジョブ一覧</span></div></div>
-                        <div class="panel-body">
-                            <div class="table-controls">
-                                <div class="search-box"><i class="fas fa-search icon"></i><input type="search" placeholder="検索"></div>
-                                <div class="icon-buttons"><button><i class="fas fa-plus"></i></button><button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-cog"></i></button></div>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="data-table">
-                                    <thead><tr><th><input type="checkbox">名前</th><th>操作環境</th><th>所有者</th><th>作成日時</th><th>作成タイプ</th><th>状態</th></tr></thead>
-                                    <tbody></tbody>
-                                </table>
-                            </div>
-                            <div class="footer-action">
-                                <button class="run-job-button">ジョブを実行</button>
-                            </div>
+                    <div class="panel-body">
+                        <div class="panel-subheader">
+                            <span>タイトル</span>
+                            <span>公開日</span>
                         </div>
                     </div>
                 </div>
