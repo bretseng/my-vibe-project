@@ -21,11 +21,10 @@
         .nav-item:hover { background-color: #f5f5f5; }
         .sidebar-footer-logo { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ccc; }
         .main-content { flex-grow: 1; padding: 48px; box-sizing: border-box; }
-        .panel { background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+        .panel { display: flex; flex-direction: column; background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
         .panel-header { background-color: #585858; color: white; padding: 12px 20px; border-top-left-radius: 7px; border-top-right-radius: 7px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
         .panel-header .header-title { display: flex; align-items: center; gap: 10px; }
-        .panel-header .header-actions button { background: none; border: none; color: white; font-size: 16px; cursor: pointer; }
-        .panel-body { padding: 20px; }
+        .panel-body { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; }
         .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
         .project-title { font-size: 28px; font-weight: 600; margin: 0; }
         .header-actions button { display: inline-flex; align-items: center; margin-left: 10px; padding: 8px 12px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer; font-size: 14px; background-color: white; }
@@ -53,7 +52,8 @@
         .data-table th { font-weight: 500; color: #888; }
         .data-table tbody tr:hover { background-color: #f9f9f9; }
         .data-table input[type="checkbox"] { margin-right: 10px; }
-        .footer-action { text-align: center; margin-top: 20px; }
+        .table-wrapper { flex-grow: 1; }
+        .footer-action { text-align: center; margin-top: auto; padding-top: 20px; }
         .run-job-button { background-color: var(--main-pink); color: white; border: none; padding: 12px 40px; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: 500; transition: background-color 0.2s ease; }
         .run-job-button:hover { background-color: #e04a6e; }
     </style>
@@ -65,9 +65,10 @@
                 <a href="index.html"><img src="https://i.imgur.com/Hc19MMW.png" alt="AI-Stack Logo"></a>
             </div>
             <nav class="sidebar-nav">
-                <a href="index.html" class="nav-item">⬅ 機械学習プロジェクト</a>
+                <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
+                <a href="#" class="nav-item">プロジェクト審査リスト</a>
                 <a href="index.html" class="nav-item">プロジェクト一覧</a>
-                <a href="details.html" class="nav-item active">プロジェクト詳細</a>
+                <a href="#" class="nav-item active">プロジェクト詳細</a>
                 <a href="#" class="nav-item">コンテナ管理</a>
                 <a href="#" class="nav-item">ジョブ管理</a>
                 <a href="#" class="nav-item">GPU 使用率</a>
@@ -125,10 +126,12 @@
                                 <div class="search-box"><i class="fas fa-search icon"></i><input type="search" placeholder="検索"></div>
                                 <div class="icon-buttons"><button><i class="fas fa-plus"></i></button><button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-cog"></i></button></div>
                             </div>
-                            <table class="data-table">
-                                <thead><tr><th><input type="checkbox">名前</th><th>GPU</th><th>操作環境</th><th>CUDA バージョン</th><th>開始時間</th><th>所有者</th><th>状態</th></tr></thead>
-                                <tbody><tr><td><input type="checkbox">demo</td><td>4GB NVIDIA P...</td><td>tensorflow:25.0...</td><td>12.8</td><td>2025/08/05 12:...</td><td>Joe Wu</td><td>実行中</td></tr></tbody>
-                            </table>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead><tr><th><input type="checkbox">名前</th><th>GPU</th><th>操作環境</th><th>CUDA バージョン</th><th>開始時間</th><th>所有者</th><th>状態</th></tr></thead>
+                                    <tbody><tr><td><input type="checkbox">demo</td><td>4GB NVIDIA P...</td><td>tensorflow:25.0...</td><td>12.8</td><td>2025/08/05 12:...</td><td>Joe Wu</td><td>実行中</td></tr></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                     <div class="panel">
@@ -138,16 +141,18 @@
                                 <div class="search-box"><i class="fas fa-search icon"></i><input type="search" placeholder="検索"></div>
                                 <div class="icon-buttons"><button><i class="fas fa-plus"></i></button><button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-cog"></i></button></div>
                             </div>
-                            <table class="data-table">
-                                <thead><tr><th><input type="checkbox">名前</th><th>操作環境</th><th>所有者</th><th>作成日時</th><th>作成タイプ</th><th>状態</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
+                            <div class="table-wrapper">
+                                <table class="data-table">
+                                    <thead><tr><th><input type="checkbox">名前</th><th>操作環境</th><th>所有者</th><th>作成日時</th><th>作成タイプ</th><th>状態</th></tr></thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                            <div class="footer-action">
+                                <button class="run-job-button">ジョブを実行</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-action">
-                <button class="run-job-button">ジョブを実行</button>
             </div>
         </main>
     </div>
