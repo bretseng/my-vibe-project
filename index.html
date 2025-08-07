@@ -17,12 +17,12 @@
         .sidebar-header { margin-bottom: 30px; padding-left: 10px; }
         .sidebar-header img { max-width: 120px; display: block; }
         .nav-item { display: block; padding: 14px 20px; text-decoration: none; color: #555; border-radius: 8px; margin-bottom: 8px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease; }
-        .nav-item:hover { background-color: #f0f0f0; }
-        /* 移除 index 頁面上 active 狀態的任何特殊樣式 */
+        a.nav-item:hover { background-color: #f0f0f0; cursor: pointer; } /* 只有 a 標籤的 nav-item 才有 hover 效果 */
+        /* 修正：將 active 狀態的樣式重置為預設，並移除點擊指標 */
         .page-index .nav-item.active {
             background-color: transparent;
-            color: #555;
-            font-weight: 500;
+            color: #111; /* 稍微加深顏色以示當前頁面 */
+            font-weight: 600; /* 稍微加粗以示當前頁面 */
             cursor: default;
         }
         .sidebar-footer-logo { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ccc; }
@@ -54,7 +54,7 @@
             <nav class="sidebar-nav">
                 <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
                 <a href="#" class="nav-item">プロジェクト審査リスト</a>
-                <a href="#" class="nav-item active">プロジェクト一覧</a>
+                <div class="nav-item active">プロジェクト一覧</div>
                 <a href="details.html" class="nav-item">プロジェクト詳細</a>
                 <a href="#" class="nav-item">コンテナ管理</a>
                 <a href="#" class="nav-item">ジョブ管理</a>
