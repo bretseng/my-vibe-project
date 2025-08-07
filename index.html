@@ -17,12 +17,12 @@
         .sidebar-header { margin-bottom: 30px; padding-left: 10px; }
         .sidebar-header img { max-width: 120px; display: block; }
         .nav-item { display: block; padding: 14px 20px; text-decoration: none; color: #555; border-radius: 8px; margin-bottom: 8px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease; }
-        a.nav-item:hover { background-color: #f0f0f0; cursor: pointer; } /* 只有 a 標籤的 nav-item 才有 hover 效果 */
-        /* 修正：將 active 狀態的樣式重置為預設，並移除點擊指標 */
+        a.nav-item:hover { background-color: #f0f0f0; cursor: pointer; }
+        /* 最終修正：移除所有 active 狀態的特殊樣式 */
         .page-index .nav-item.active {
             background-color: transparent;
-            color: #111; /* 稍微加深顏色以示當前頁面 */
-            font-weight: 600; /* 稍微加粗以示當前頁面 */
+            color: #555;
+            font-weight: 500;
             cursor: default;
         }
         .sidebar-footer-logo { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ccc; }
@@ -30,82 +30,4 @@
         .welcome-header h1 { font-size: 26px; font-weight: 400; margin-top: 0; margin-bottom: 40px; color: var(--main-pink);}
         .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; }
         .panel { background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
-        .panel-header { background-color: #585858; color: white; padding: 12px 20px; border-top-left-radius: 7px; border-top-right-radius: 7px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
-        .panel-header .header-title { display: flex; align-items: center; gap: 10px; }
-        .panel-header .header-actions button { background: none; border: none; color: white; font-size: 16px; cursor: pointer; }
-        .panel-body { padding: 20px; min-height: 150px; }
-        .panel-subheader { display: flex; justify-content: space-between; padding: 0 10px 10px 10px; color: #999; font-size: 13px; border-bottom: 1px solid #f0f0f0; margin-bottom: 5px; }
-        .panel-subheader span:last-child { margin-right: 100px; }
-        .project-row { display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: center; padding: 12px 10px; font-size: 14px; }
-        .project-button { background-color: var(--main-pink); color: white; border: 1px solid var(--main-pink); padding: 8px 16px; border-radius: 5px; cursor: pointer; font-size: 13px; font-weight: 500; position: relative; overflow: hidden; transition: color 0.4s ease-out; }
-        .project-button span { position: relative; z-index: 1; }
-        .project-button::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #ffffff; transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease-out; z-index: 0; }
-        .project-button:hover { color: var(--main-pink); }
-        .project-button:hover::before { transform: scaleX(1); }
-        .project-button:active { transform: translateY(2px); }
-    </style>
-</head>
-<body class="page-index">
-    <div class="app-container">
-        <aside class="sidebar">
-            <div class="sidebar-header">
-                <a href="index.html"><img src="https://i.imgur.com/Hc19MMW.png" alt="AI-Stack Logo"></a>
-            </div>
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item">⬅ 機械学習プロジェクト</a>
-                <a href="#" class="nav-item">プロジェクト審査リスト</a>
-                <div class="nav-item active">プロジェクト一覧</div>
-                <a href="details.html" class="nav-item">プロジェクト詳細</a>
-                <a href="#" class="nav-item">コンテナ管理</a>
-                <a href="#" class="nav-item">ジョブ管理</a>
-                <a href="#" class="nav-item">GPU 使用率</a>
-                <a href="#" class="nav-item">ストレージ管理</a>
-                <a href="#" class="nav-item">イメージ管理</a>
-                <a href="#" class="nav-item">詳細設定</a>
-                <a href="#" class="nav-item">コスト分析</a>
-                <a href="#" class="nav-item">RCS</a>
-                <a href="#" class="nav-item">モデル推論サービス</a>
-            </nav>
-            <div class="sidebar-footer-logo"><i class="fab fa-creative-commons-zero"></i></div>
-        </aside>
-        <main class="main-content">
-            <header class="welcome-header">
-                <h1>こんにちは Joe Wu, 良い一日をお過ごしください！</h1>
-            </header>
-            <div class="content-grid">
-                <div class="panel">
-                    <div class="panel-header">
-                        <div class="header-title"><i class="fas fa-folder"></i><span>最近訪問したプロジェクト</span></div>
-                        <div class="header-actions"><button><i class="fas fa-sync-alt"></i></button></div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="panel-subheader">
-                            <span>プロジェクト名</span>
-                            <span>アクセス日時</span>
-                        </div>
-                        <div class="project-row">
-                            <span>JapanLab</span>
-                            <span>2025/08/07 22:25:16</span>
-                            <a href="details.html">
-                                <button class="project-button"><span>プロジェクトを見る</span></button>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel">
-                    <div class="panel-header">
-                        <div class="header-title"><i class="fas fa-clipboard-list"></i><span>お知らせ</span></div>
-                        <div class="header-actions"><button><i class="fas fa-sync-alt"></i></button></div>
-                    </div>
-                    <div class="panel-body">
-                        <div class="panel-subheader">
-                            <span>タイトル</span>
-                            <span>公開日</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-</body>
-</html>
+        .
