@@ -18,11 +18,12 @@
         .sidebar-header img { max-width: 120px; display: block; }
         .nav-item { display: block; padding: 14px 20px; text-decoration: none; color: #555; border-radius: 8px; margin-bottom: 8px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease; }
         .nav-item:hover { background-color: #f0f0f0; }
-        /* 最終修正：index 頁面的 active 狀態為白底，但文字加粗以示區別 */
+        /* 移除 index 頁面上 active 狀態的任何特殊樣式 */
         .page-index .nav-item.active {
-            background-color: #ffffff;
-            color: #111;
-            font-weight: 600;
+            background-color: transparent;
+            color: #555;
+            font-weight: 500;
+            cursor: default;
         }
         .sidebar-footer-logo { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); font-size: 24px; color: #ccc; }
         .main-content { flex-grow: 1; padding: 48px; box-sizing: border-box; }
