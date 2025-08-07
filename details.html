@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Dashboard - Details</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
 
+  <style>
+    /* --- 全局 Vibe 設定 --- */
+    body {
+      margin: 0;
+      font-family: 'Noto Sans JP', sans-serif;
+      background-color: #f7f7f7; 
+      color: #333;
+    }
+    a { text-decoration: none; } /* 拿掉連結底線 */
+
+    /* --- App 容器 & 佈局 --- */
+    .app-container { display: flex; }
+
+    /* --- 質感側邊欄 --- */
+    .sidebar { width: 240px; background-color: #ffffff; height: 100vh; padding: 24px; border-right: 1px solid #e8e8e8; box-sizing: border-box; }
+    .sidebar-header { font-size: 20px; font-weight: 600; padding-left: 10px; margin-bottom: 30px; }
+    .nav-item { display: block; padding: 14px 20px; text-decoration: none; color: #555; border-radius: 8px; margin-bottom: 8px; font-weight: 500; transition: background-color 0.2s ease, color 0.2s ease; }
+    .nav-item.active { background-color: #f0f0f7; color: #111; }
+    .nav-item:hover { background-color: #f5f5f5; }
+
+    /* --- 主要內容區 --- */
+    .main-content { flex-grow: 1; padding: 48px; box-sizing: border-box; }
+
+    /* --- Panel 通用樣式 --- */
+    .panel { background-color: #ffffff; border-radius: 8px; border: 1px solid #e8e8e8; box-shadow: 0 1px 3px rgba(0,0,0,0.02); }
+    .panel-header { background-color: #585858; color: white; padding: 15px 20px; border-top-left-radius: 7px; border-top-right-radius: 7px; font-weight: 500; display: flex; justify-content: space-between; align-items: center; }
+    .panel-body { padding: 20px; min-height: 150px; }
+
+    /* --- Details Page 專用樣式 --- */
+    .page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
+    .project-title { font-size: 28px; font-weight: 600; margin: 0; }
+    .header-actions button { margin-left: 10px; padding: 8px 16px; border-radius: 5px; border: 1px solid #ccc; cursor: pointer; font-size: 13px; }
+    .header-actions .action-button { background-color: #f0f0f0; }
+    .details-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 36px; }
+
+    /* 左欄專用 */
+    .left-column .panel { margin-bottom: 30px; }
+    .info-item { display: flex; justify-content: space-between; padding: 8px 0; font-size: 14px; }
+    .info-item span { font-weight: 500; }
+
+    /* 資源分配條 */
+    .resource-bar { display: flex; align-items: center; margin-bottom: 15px; }
+    .resource-bar label { width: 50px; font-size: 14px; }
+    .bar-container { flex-grow: 1; height: 10px; background-color: #eee; border-radius: 5px; overflow: hidden; margin: 0 15px; }
+    .bar { height: 100%; background-color: #5c9ce5; border-radius: 5px; }
+    .resource-bar span { font-size: 14px; }
+
+    /* 成員列表 */
+    .member-item { padding: 8px 0; font-size: 14px; }
+    .tag { font-size: 12px; padding: 2px 6px; border-radius: 4px; color: white; margin-left: 8px; }
+    .admin-tag { background-color: #e74c3c; }
+  </style>
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">AI-Stack</div>
+      <nav class="sidebar-nav">
+        <a href="index.html" class="nav-item">⬅ 機械学習プロジェクト</a>
+        <a href="index.html" class="nav-item">プロジェクト一覧</a>
+        <a href="#" class="nav-item active">プロジェクト詳細</a>
+        <a href="#" class="nav-item">コンテナ管理</a>
+        <a href="#" class="nav-item">ジョブ管理</a>
+        <a href="#" class="nav-item">GPU 使用率</a>
+        <a href="#" class="nav-item">ストレージ管理</a>
+        <a href="#" class="nav-item">イメージ管理</a>
+        <a href="#" class="nav-item">詳細設定</a>
+        <a href="#" class="nav-item">コスト分析</a>
+        <a href="#" class="nav-item">RCS</a>
+        <a href="#" class="nav-item">モデル推論サービス</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <header class="page-header">
+        <h1 class="project-title">JapanLab</h1>
+        <div class="header-actions">
+          <button class="edit-button">✏️</button>
+          <button class="action-button">変更申請</button> </div>
+      </header>
+
+      <div class="details-grid">
+        <div class="left-column">
+          <div class="panel">
+            <div class="panel-header">プロジェクト基本情報</div>
+            <div class="panel-body">
+              <div class="info-item"><span>⬛ 開始日時</span> 2025/08/05</div>
+              <div class="info-item"><span>終了日時</span> 2025/08/04</div>
+              <div class="info-item"><span>💻 コンテナ</span> 1 個</div>
+              <div class="info-item"><span>✈️ ジョブ</span> 0 個</div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">リソース割り当て</div>
+            <div class="panel-body">
+              <div class="resource-bar"><label>GPU</label><div class="bar-container"><div class="bar" style="width: 20%;"></div></div><span>10 PCS</span></div>
+              <div class="resource-bar"><label>CPU</label><div class="bar-container"><div class="bar" style="width: 60%;"></div></div><span>99 Core</span></div>
+              <div class="resource-bar"><label>RAM</label><div class="bar-container"><div class="bar" style="width: 80%;"></div></div><span>999 GB</span></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-header">プロジェクトメンバー</div>
+            <div class="panel-body">
+              <div class="member-item">fylmacaca <span class="tag admin-tag">管理者</span></div>
+              <div class="member-item">Joe Wu <span class="tag admin-tag">管理者</span></div>
+              <div class="member-item">test</div>
+              <div class="member-item">testuser2</div>
+            </div>
+          </div>
+        </div>
+        <div class="right-column">
+          </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
